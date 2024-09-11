@@ -31,6 +31,16 @@
     div#post-meta span.updated
       visibility: visible
 
+  // 文章页加入字数统计
+  div#page-words
+    span.sep:before
+      content: '|'
+    span.updated
+      visibility: hidden
+  &:hover
+    div#page-words span.updated
+      visibility: visible
+
 .bread-nav .ghrepo
   font-size: $fs-13
   display: flex
