@@ -45,6 +45,15 @@ function layoutBreadcrumb() {
   el += `</div>`
   // 3.left.bottom
   el += partial('dateinfo')
+  // 文章页加入字数统计
+  // ref: https://blog.hzchu.top/2024/%E4%B8%BB%E9%A2%98%E6%94%B9%E5%8A%A8%E5%B0%8F%E8%AE%B0/#%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1
+  if (page.layout == "post") {
+    el += `<div class="flex-row" id="page-words">`
+    el += `<span class="text created">本文字数：` + symbolsCount(page) + ` 字</span>`
+    el += `<span class="sep updated" ></span>`
+    el += `<span class="text updated">阅读时长：` + symbolsTime(page) + ` 分</span>`
+    el += `</div>`
+  }
   // end 2.left
   el += `</div>`
   // end 1.main
