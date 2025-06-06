@@ -1,6 +1,6 @@
 ######## Stellar info ########
 stellar:
-  version: '1.29.1'
+  version: '1.30.0'
   homepage: 'https://xaoxuu.com/wiki/stellar/'
   repo: 'https://github.com/xaoxuu/hexo-theme-stellar'
   main_css: /css/main.css
@@ -145,7 +145,7 @@ notebook:
   auto_excerpt: 128
   # 可以为某个 tag 设定图标（显示在标签树中）。
   tagcons:
-    '': solar:hashtag-linear
+    '': solar:hashtag-square-bold
   # 每页显示多少篇笔记。0 表示不分页，null 则 fallback 到 hexo 的配置。
   # 可以在笔记本 yaml 的 per_page 字段中覆盖此参数。
   per_page: null
@@ -173,7 +173,7 @@ article:
   # 如果没有指定封面，是否根据 tags 作为关键词搜索封面图片？
   auto_cover: false # search from https://source.unsplash.com/
   # 封面图宽高比
-  cover_ratio: 2.4
+  cover_ratio: 2
   # 如果没有指定横幅，是否根据 tags 作为关键词搜索横幅图片？
   auto_banner: false # search from https://source.unsplash.com/
   # 如果没有指定 excerpt 和 description，将自动取多长的内容作为文章摘要？
@@ -356,11 +356,11 @@ tag_plugins:
     interactive: false # enable interactive for user
   # {% quot %}
   quot:
-    default: # 可以自行配置多种图标方案
-      prefix: https://bu.dusays.com/2022/10/24/63567d3e092ff.png
-      suffix: https://bu.dusays.com/2022/10/24/63567d3e0ab55.png
+    default: # 可以自行配置多种图标方案，支持icons.yml中配置的图片key，也支持直接设置svg/png等文件链接
+      prefix: bxs:quote-left
+      suffix: bxs:quote-right
     hashtag:
-      prefix: https://bu.dusays.com/2022/10/24/63567d3e07da3.png
+      prefix: solar:hashtag-square-bold
     question:
       prefix: ph:seal-question-fill
   # {% emoji %}
@@ -446,6 +446,8 @@ data_services:
     js: /js/services/sites.js
   friends:
     js: /js/services/friends.js
+  friends_and_posts:
+    js: /js/services/friends_and_posts.js
   # 列表布局类
   timeline:
     js: /js/services/timeline.js
