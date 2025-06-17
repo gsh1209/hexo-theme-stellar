@@ -35,9 +35,10 @@
     text-align: justify
     if hexo-config('style.leftbar') && hexo-config('style.leftbar.blur-px')
       --blur-px: convert(hexo-config('style.leftbar.blur-px'))
-      @supports ((-webkit-backdrop-filter:blur(var(--blur-px))) or (backdrop-filter:blur(var(--blur-px))))
-        background: var(--blur-bg)
-        backdrop-filter: saturate(240%) blur(var(--blur-px))
-        -webkit-backdrop-filter: saturate(240%) blur(var(--blur-px))
+// 临时解决侧边栏背景设置为纯色时上下背景颜色不一致问题，移除leftbar-container部分的模糊效果
+//      @supports ((-webkit-backdrop-filter:blur(var(--blur-px))) or (backdrop-filter:blur(var(--blur-px))))
+//        background: var(--blur-bg)
+//        backdrop-filter: saturate(240%) blur(var(--blur-px))
+//        -webkit-backdrop-filter: saturate(240%) blur(var(--blur-px))
     if hexo-config('style.leftbar') && hexo-config('style.leftbar.blur-bg')
       --blur-bg: convert(hexo-config('style.leftbar.blur-bg'))
