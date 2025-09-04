@@ -1,5 +1,4 @@
 .widget-wrapper.toc
-  background: var(--site-bg)
   z-index 3
   .widget-body
     position relative
@@ -12,6 +11,14 @@
       width: 4px
       background: var(--block)
       border-radius: 4px
+  
+  if !$site-background-image
+    @media screen and (min-width: $device-laptop)
+      background: var(--background)
+
+.l_left .widget-wrapper.toc
+  @media screen and (min-width: $device-laptop)
+    background: none
 
 // 目录基本样式
 .widget-wrapper.toc .toc
@@ -26,7 +33,7 @@
   a
     --padding: calc(var(--gap-padding) / 2)
     --padding-offset: calc(0 - var(--padding))
-    padding: 6px var(--padding)
+    padding: 4px var(--padding)
     margin: 0 var(--padding)
     color: var(--text-p3)
     display: block
@@ -40,7 +47,7 @@
       bottom: 6px
       left: -8px
       width: 4px
-      background: $color-theme
+      background: var(--theme)
       border-radius: 4px
     &:hover
       background: var(--block-border)
@@ -179,6 +186,6 @@
       color: var(--text-p2)
   .widget-wrapper.toc .widget-footer
     a
-      background: var(--alpha100)
+      background: var(--block)
     a+a
       margin-top: 4px

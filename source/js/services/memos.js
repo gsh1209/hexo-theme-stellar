@@ -2,7 +2,7 @@ utils.jq(() => {
   const els = Array.from(document.getElementsByClassName('ds-memos'));
 
   els.forEach(el => {
-    const api = el.getAttribute('api');
+    const api = el.dataset.api;
     if (!api) return;
 
     const default_avatar = el.getAttribute('avatar') || def.avatar;
@@ -28,7 +28,7 @@ utils.jq(() => {
                       <div class="header">${!users.length && !hide.includes('user') ? await versionHandler.buildUser(item, memos, default_avatar) : ''}
                       <span>${versionHandler.buildDate(item).toLocaleString()}</span></div>
                       <div class="body">${marked.parse(item.content || '')}
-                      <div class="tag-plugin image">${versionHandler.buildImages(item, host).join('')}</div>
+                      <p>${versionHandler.buildImages(item, host).join('')}</p>
                       </div></div>`;
     }
 
@@ -39,7 +39,7 @@ utils.jq(() => {
             `<div class="user-info">${default_avatar ? `<img src="${default_avatar}">` : ''}<span>${item.creatorName}</span></div>`,
         buildDate: item => new Date(item.createdTs * 1000),
         buildImages: (item, host) => (item.resourceList || []).filter(res => res.type?.includes('image/')).map(res =>
-            `<div class="image-bg"><img src="${res.externalLink || `https://${host}/o/r/${res.id}`}"></div>`
+            `<p><img src="${res.externalLink || `https://${host}/o/r/${res.id}`}"></p>`
         )
       },
       "22+": {
@@ -69,7 +69,7 @@ utils.jq(() => {
         },
         buildDate: item => new Date(item.createTime),
         buildImages: (item) => (item.resources || []).filter(res => res.type?.includes('image/')).map(res =>
-            `<div class="image-bg"><img src="${res.externalLink || `https://${host}/o/r/${res.id}`}"></div>`
+            `<p><img src="${res.externalLink || `https://${host}/o/r/${res.id}`}"></p>`
         )
       },
       "feature": {
